@@ -2,7 +2,7 @@
 
 
 [![Tests](https://github.com/igor-sosnowicz/checktica-python/actions/workflows/main.yml/badge.svg?branch=main&event=push)](https://github.com/igor-sosnowicz/checktica-python/actions/workflows/main.yml)
-[![Coverage](https://raw.githubusercontent.com/igor-sosnowicz/checktica-python/gh-pages/coverage.svg?raw=true)](https://github.com/igor-sosnowicz/checktica-python/actions/workflows/main.yml)
+[![codecov](https://codecov.io/github/igor-sosnowicz/checktica-python/graph/badge.svg?token=F26WHZWZCY)](https://codecov.io/github/igor-sosnowicz/checktica-python)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![PyPI version](https://badge.fury.io/py/checktica.svg)](https://badge.fury.io/py/checktica)
