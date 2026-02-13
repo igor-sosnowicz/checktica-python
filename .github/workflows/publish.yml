@@ -23,10 +23,13 @@ jobs:
         run: uv python install 3.13
       - name: Build
         run: uv build
-      # Check that basic features work and we didn't miss to include crucial files
       - name: Run tests (wheel)
-        run: uv run --isolated --no-project --with dist/*.whl pytest tests/
+        run: |
+          WHEEL=$(ls dist/*.whl | head -1)
+          uv run --isolated --no-project --with pytest --with pytest-cov --with "$WHEEL" pytest tests/
       - name: Run tests (source distribution)
-        run: uv run --isolated --no-project --with dist/*.tar.gz pytest tests/
+        run: |
+          TARBALL=$(ls dist/*.tar.gz | head -1)
+          uv run --isolated --no-project --with pytest --with pytest-cov --with "$TARBALL" pytest tests/
       - name: Publish
         run: uv publish
