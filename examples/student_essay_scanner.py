@@ -17,8 +17,8 @@ threshold = 0.65
 
 if result.is_llm_generated and result.confidence > threshold:
     print(
-        f"Hmmm... The essay handed by {student_name} may need double checking for signs "
-        "of external help."
+        f"Hmmm... The essay handed by {student_name} may need double checking for "
+        "signs of external help."
     )
 else:
     print("It seems to be a student-written esssay. Let's skip this one.")
