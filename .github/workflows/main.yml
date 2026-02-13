@@ -55,7 +55,7 @@ jobs:
         run: |
           mkdir -p badges
           uv pip install coverage-badge
-          python -m coverage_badge -o badges/coverage.svg
+          python -m coverage_badge -i htmlcov/ -o badges/coverage.svg
         continue-on-error: true
 
       - name: Deploy to GitHub Pages
@@ -71,4 +71,4 @@ jobs:
         with:
           name: coverage-report
           path: htmlcov/
-          retention-days: 30
+          retention-days: 90
