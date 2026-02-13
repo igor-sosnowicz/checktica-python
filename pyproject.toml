@@ -1,0 +1,62 @@
+[project]
+name = "checktica"
+version = "0.1.0"
+description = "Open Source Python SDK for Checktica - AI-written text detector."
+readme = "README.md"
+authors = [{ name = "checktica-team", email = "contact@checktica.com" }]
+requires-python = ">=3.13"
+dependencies = [
+    "httpx>=0.28.1",
+    "loguru>=0.7.3",
+    "pydantic>=2.12.5",
+    "retrying>=1.4.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.10.0,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["pre-commit>=4.5.1", "pytest-cov>=7.0.0", "ruff>=0.15.0"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=checktica --cov-report html"
+
+[tool.ruff.format]
+indent-style = "space"
+line-ending = "auto"
+quote-style = "double"
+docstring-code-format = true
+skip-magic-trailing-comma = false
+
+
+[tool.ruff.lint]
+select = ["ALL"]
+
+ignore = [
+    "ANN002",  # Allow for untyped *args.
+    "ANN003",  # Allow for untyped **kwargs.
+    "COM812",  # Ignore missing trailing comma, `ruff` formatter already enforces that.
+    "D203",    # Incorrect blank line before class.
+    "D205",    # Do not require blank line after docstring, it conflicts with the formatter.
+    "D212",    # Let multi-line docstring start at the second line.
+    "D413",    # Blank lines after the last section are unnecessary.
+    "EM101",   # Allow for string literals in exception constructors.
+    "EM102",   # Allow for f-strings in exception constructors.
+    "PLC0415", # Let local imports be used, e.g. for lazy loading.
+    "TRY003",  # Also, allow for raising exceptions with long literal messages.
+]
+
+[tool.ruff.lint.per-file-ignores]
+
+"tests/**/*.py" = [
+    "S101",  # Allow for asserts allowed in tests.
+    "ARG",   # Ignore unused function arguments, because fixtures are not ordinary arguments.
+    "SLF00", # Private members may be accessed in tests.
+]
+
+"examples/**.py" = [
+    "D100",   # __init__.py is redundant for example, which will not be imported.
+    "INP001", # __init__.py is redundant for example, which will not be imported.
+    "T201",   # Print statements are allowed.
+]

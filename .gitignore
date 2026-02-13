@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Developer Tools
+.python-version
+.pytest_cache
+
+# Test coverage report
+.coverage
+htmlcov
+
+# Secrets
+.env
+.pypi_token.txt
