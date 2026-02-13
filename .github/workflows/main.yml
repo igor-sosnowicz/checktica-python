@@ -1,4 +1,4 @@
-name: Run tests
+name: Tests
 
 on:
   push:
@@ -49,34 +49,9 @@ jobs:
         run: uv sync --locked --all-extras --dev
 
       - name: Run tests and generate coverage
-        run: uv run pytest tests/ --cov=checktica --cov-report html --cov-report term-missing --cov-report xml
-
-      - name: Run tests for code coverage
         run: uv run pytest tests/ --cov --cov-branch --cov-report=xml
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: Generate coverage badge
-        run: |
-          mkdir -p badges
-          uv pip install coverage-badge
-          python -m coverage_badge -i htmlcov/ -o badges/coverage.svg
-        continue-on-error: true
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: badges/
-          branch: gh-pages
-          clean: false
-        continue-on-error: true
-
-      - name: Upload coverage report artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: htmlcov/
-          retention-days: 90
