@@ -3,8 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/checktica.svg)](https://badge.fury.io/py/checktica)
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](tests/)
-[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](htmlcov/)
+[![Coverage](https://raw.githubusercontent.com/checktica/checktica-python/gh-pages/coverage.svg?raw=true)](https://github.com/checktica/checktica-python/actions/workflows/main.yml)
 
 Open Source Python SDK for Checktica - detect AI-generated text with high accuracy.
 
